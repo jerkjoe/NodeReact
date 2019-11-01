@@ -29,3 +29,12 @@ User enter
 5. Email Provider + Express + Mongo
 6. Mongo?
 7. Mongo + React + Redux
+
+
+1. Landing page + Login button
+2. OAuth 
+3. Results of campains - Archive page
+4. New campaign
+
+
+
