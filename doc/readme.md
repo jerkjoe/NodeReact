@@ -20,3 +20,12 @@ User creates a new 'campain'
 |    
 User enter
 
+
+
+1. Express server + MongoDB + PassportJS
+2. Stripe + Redux
+3. React + Redux + Redux Form
+4. Email Provider
+5. Email Provider + Express + Mongo
+6. Mongo
+7. Mongo + React + Redux
