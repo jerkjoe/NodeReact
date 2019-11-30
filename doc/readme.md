@@ -27,5 +27,5 @@ User enter
 3. React + Redux + Redux Form
 4. Email Provider
 5. Email Provider + Express + Mongo
-6. Mongo
+6. Mongo?
 7. Mongo + React + Redux
