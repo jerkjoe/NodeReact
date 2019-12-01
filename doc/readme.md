@@ -36,6 +36,5 @@ User enter
 3. Results of campains - Archive page
 4. New campaign
 5. Review
-6. 
 
 
