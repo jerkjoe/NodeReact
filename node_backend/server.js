@@ -1,6 +1,8 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 
+const articleRouter = require('./article')
+
 const app = express();
 const port = 3000;
 
@@ -13,14 +15,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'remotemysql.com',
-    port: '3306',
-    user: 'JVIlsWXgGL',
-    password: '6MUPR0P8PV',
-    database: 'JVIlsWXgGL'
-});
+var connection = require('./connection')
 
 connection.connect(function(err) {
     if (err) {
@@ -36,7 +31,7 @@ connection.connect(function(err) {
 // })
 
 // connection.end()
-// var sql = "CREATE TABLE users (username VARCHAR(255), password VARCHAR(255))";
+// var sql = "CREATE TABLE articles (username VARCHAR(255), uuid VARCHAR(255), article TEXT, title VARCHAR(255))";
 // var sql = "INSERT INTO users (username, password) VALUES ('jerkjoe', '123123')";
 // var sql = 'SELECT * FROM users WHERE username = "jerkjoe" '
 // connection.query(sql, function(err, result) {
@@ -152,5 +147,8 @@ app.post('/register', jsonParser, function(req, res) {
 });
 
 app.get('/', (req, res) => res.send('Hello World!'));
+
+app.use('/article', articleRouter)
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

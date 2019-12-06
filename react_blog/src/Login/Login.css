@@ -1,0 +1,8 @@
+
+.error-display {
+    display: none;
+}
+
+.error-display.active {
+    display: block;
+}
