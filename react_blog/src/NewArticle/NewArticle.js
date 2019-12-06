@@ -23,13 +23,13 @@ export default function NewArticle() {
 
     function handleSave() {
         const params = prepareJSON()
-        axios.post('http://localhost:3000/article/create', params).then(res => {
+        axios.post('http://localhost:3030/article/create', params).then(res => {
             let data = res.data
             console.log(data.message)
         })
     }
     function getArticles() {
-        axios.get('http://localhost:3000/article/all', {
+        axios.get('http://localhost:3030/article/all', {
             username: 'jerkjoe'
         }).then(res => {
             console.log(res)
@@ -45,7 +45,7 @@ export default function NewArticle() {
         return {
             title: header,
             article: body,
-            username: 'jerkjoe'
+            username: window.sessionStorage.getItem('login_user') ? window.sessionStorage.getItem('login_user') : ''
         }
     }
 

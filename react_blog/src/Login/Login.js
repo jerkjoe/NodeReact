@@ -30,6 +30,7 @@ function Login() {
           console.log(result.message)
         } else {
           console.log(result.message);
+          window.sessionStorage.setItem('login_user', params.username)
         }
       }).catch(err => {
         console.log('err')

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 const articleRouter = require('./article')
 
 const app = express();
-const port = 3000;
+const port = 3030;
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
