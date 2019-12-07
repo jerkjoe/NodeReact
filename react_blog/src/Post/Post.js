@@ -49,7 +49,7 @@ export default function Post(props) {
             title: post.title,
             uuid: post.uuid
         }
-        axios.post('http://localhost:3030/article/update', params).then(res => {
+        axios.post('http://nodeblog.josephjin.win/article/update', params).then(res => {
             console.log(res)
         }).catch(err => {
             console.log(err)

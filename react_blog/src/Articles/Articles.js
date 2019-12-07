@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export default function Articles() {
 
     function getAllArticles() {
-        return axios.get('http://localhost:3030/article/all')
+        return axios.get('http://nodeblog.josephjin.win/article/all')
     }
 
     let [posts, setPosts] = useState([])
