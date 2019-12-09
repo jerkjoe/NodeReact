@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import { AppContext } from '../App';
 
+
+import './Post.css'
+
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -61,7 +64,7 @@ export default function Post(props) {
         })
     }
     return (
-        <div>
+        <div className="content-container">
             <h1>
                 {post.title}
             </h1>
