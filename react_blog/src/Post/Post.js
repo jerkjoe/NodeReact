@@ -1,11 +1,16 @@
 import ReactMarkdown from 'react-markdown'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
+import { AppContext } from '../App';
+
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
 export default function Post(props) {
-
+    
+    const {state, dispatch} = useContext(AppContext)
+    
     let [post, setPost] = useState({
         title: '',
         username: '',
@@ -19,7 +24,7 @@ export default function Post(props) {
         if (props.location.state) {
             setPost(props.location.state.post)
 
-            setDisplayEdit(displayEditButton(props.location.state.post.username))
+            // setDisplayEdit(displayEditButton(props.location.state.post.username))
 
 
         }
@@ -27,9 +32,9 @@ export default function Post(props) {
     }, [])
 
 
-    function displayEditButton(username) {
-        return window.sessionStorage.getItem('login_user') === username
-    }
+    // function displayEditButton(username) {
+    //     return window.sessionStorage.getItem('login_user') === username
+    // }
 
     function handleEdit() {
         // const username = props.location.state.post.username
@@ -74,7 +79,7 @@ export default function Post(props) {
 
             {
                 // If the login user is the author
-                displayEdit ? (<div>
+                state.login ? (<div>
                     <button onClick={handleEdit}>Edit</button>
                 </div>) : ''
             }
