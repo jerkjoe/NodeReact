@@ -11,7 +11,9 @@ import Login from '../Login/Login';
 
 export default function Header() {
     const { state, dispatch } = useContext(AppContext);
-
+    
+    let [loginAction, setLoginAction] = useState(false)
+    
     let [showModal, setShowModal] = useState(false)
     
     useEffect(function() {
@@ -38,6 +40,10 @@ export default function Header() {
     function closeModal(event) {
         setShowModal(false)
     }
+    
+    function onSubmit(event) {
+        setLoginAction(!loginAction)
+    }
     return (
         <header>
             <div className="logo-wrapper image-wrapper">
@@ -50,8 +56,8 @@ export default function Header() {
                     <a onClick={openModal}>Login</a>
                 )}
             </div>
-            <Modal title="Login Modal" visible={showModal} onOk={closeModal} onCancel={closeModal}>
-                <Login></Login>
+            <Modal title="Login Modal" visible={showModal} onOk={onSubmit} onCancel={closeModal}>
+                <Login login={loginAction}></Login>
             </Modal>
         </header>
     );

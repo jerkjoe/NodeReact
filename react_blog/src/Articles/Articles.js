@@ -1,9 +1,11 @@
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import removeMarkdown from 'remove-markdown'
+import removeMarkdown from 'remove-markdown';
 import { Link } from 'react-router-dom';
 import { Card, Divider } from 'antd';
+
+import './Articles.css';
 
 export default function Articles() {
     function getAllArticles() {
@@ -23,42 +25,44 @@ export default function Articles() {
             .catch();
     }, []);
 
-    
     return (
-        <div>
-            <div>This is Articles</div>
+        <div className="content-container">
+            <h2>All posts</h2>
 
-            {posts.map((post, index) => {
-                return (
-                    <div key={index}>
-                        <Card
-                            title={post.title}
-                            extra={
-                                <Link
-                                    to={{
-                                        pathname: `/article/${post.uuid}`,
-                                        state: {
-                                            post: post
-                                        }
-                                    }}
-                                >
-                                    {post.title}
-                                </Link>
-                            }
-                            style={{ width: 500 }}
-                        >
-                        <p>Aurthor: {post.username}</p>
-                        <p>Published on: {new Date(post.uuid - 0).toUTCString()}</p>
-                        <Divider></Divider>
-                        <div>
-                            {removeMarkdown(post.article).substr(0, 50)}
+            <div className="posts">
+                {posts.map((post, index) => {
+                    return (
+                        <div className="post" key={index}>
+                            <Card
+                                title={post.title}
+                                extra={
+                                    <Link
+                                        to={{
+                                            pathname: `/article/${post.uuid}`,
+                                            state: {
+                                                post: post
+                                            }
+                                        }}
+                                    >
+                                        Read More
+                                    </Link>
+                                }
+                                style={{ width: "100%" }}
+                            >
+                                <p>Aurthor: {post.username}</p>
+                                <p>
+                                    Published on:{' '}
+                                    {new Date(post.uuid - 0).toUTCString()}
+                                </p>
+                                <Divider></Divider>
+                                <div>
+                                    {removeMarkdown(post.article).substr(0, 80)}{removeMarkdown(post.article).length > 80 ? '...' : ''}
+                                </div>
+                            </Card>
                         </div>
-                        </Card>
-                        
-                        
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }
