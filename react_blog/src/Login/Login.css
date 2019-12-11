@@ -6,3 +6,21 @@
 .error-display.active {
     display: block;
 }
+
+.inputs > div {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+.inputs > div:last-child {
+    margin-bottom: 0px;
+}
+.inputs > div > label {
+    width: 90px;
+}
+.inputs > div > input {
+    flex: 1;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #e3e3e3;
+}

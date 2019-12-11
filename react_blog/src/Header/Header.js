@@ -56,7 +56,7 @@ export default function Header() {
                     <a onClick={openModal}>Login</a>
                 )}
             </div>
-            <Modal title="Login Modal" visible={showModal} onOk={onSubmit} onCancel={closeModal}>
+            <Modal title="Login" visible={showModal} okText="Submit" onOk={onSubmit} onCancel={closeModal}>
                 <Login login={loginAction}></Login>
             </Modal>
         </header>
