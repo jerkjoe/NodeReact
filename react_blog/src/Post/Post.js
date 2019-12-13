@@ -65,6 +65,9 @@ export default function Post(props) {
     }
     return (
         <div className="content-container">
+            <div>
+                <Link to="/">Back</Link>
+            </div>
             <h1>
                 {post.title}
             </h1>
